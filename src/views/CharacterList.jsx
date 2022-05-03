@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, Route, useRouteMatch } from 'react-router-dom';
+import { Route, useRouteMatch, Link } from 'react-router-dom';
+import CharacterCard from '../components/CharacterCard';
 import CharacterDetails from './CharacterDetails';
 
 export default function CharacterList() {
@@ -29,13 +30,15 @@ export default function CharacterList() {
         />
       ) : (
         <>
-          <ul>
-            {characters.map((character) => (
-              <li key={character.id}>
-                <Link to={`/characters/${character.id}`}>{character.name}</Link>
-              </li>
-            ))}
-          </ul>
+          <section>
+            <ul>
+              {characters.map((character) => (
+                <Link key={character.id} to={`${url}/${character.id}`}>
+                  <CharacterCard character={character} />
+                </Link>
+              ))}
+            </ul>
+          </section>
           <Route path={`${path}/:id`}>
             <CharacterDetails characters={characters} />
           </Route>
