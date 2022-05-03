@@ -6,8 +6,8 @@ import CharacterDetails from '../views/CharacterDetails';
 export default function CharacterCard({ character }) {
   const { url, path } = useRouteMatch();
   return (
-    <div>
+    <Link to={`${url}/${character.id}`}>
       <li>{character.name}</li>
-    </div>
+    </Link>
   );
 }

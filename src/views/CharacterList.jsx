@@ -33,9 +33,7 @@ export default function CharacterList() {
           <section>
             <ul>
               {characters.map((character) => (
-                <Link key={character.id} to={`${url}/${character.id}`}>
-                  <CharacterCard character={character} />
-                </Link>
+                <CharacterCard key={character.id} character={character} />
               ))}
             </ul>
           </section>
