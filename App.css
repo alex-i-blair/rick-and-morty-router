@@ -1,0 +1,51 @@
+main {
+  display: flex;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+.characterList {
+  /* width: 40%; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.characterCard {
+  padding: 0;
+  width: 100px;
+  font-size: 8px;
+  margin-bottom: 5px;
+  height: fit-content;
+  border-radius: 13px;
+  background-color: rgba(11, 230, 11, 0.204);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  /* padding-bottom: 20px; */
+}
+
+.characterCard img {
+  border-radius: 13px;
+  width: inherit;
+}
+
+.detailPage {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.detailCard img {
+  width: 80%;
+  border-radius: 13px;
+  display: flex;
+}
