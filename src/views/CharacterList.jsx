@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import { Route, useRouteMatch, Switch } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Route, useRouteMatch } from 'react-router-dom';
+import styles from '../../App.css';
 import CharacterCard from '../components/CharacterCard';
 import CharacterDetails from './CharacterDetails';
-import styles from '../../App.css';
 
 export default function CharacterList({ id = null }) {
   const { url, path } = useRouteMatch();
