@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
+  Link,
+  Route,
+  Switch,
   useParams,
   useRouteMatch,
-  Link,
-  Switch,
-  Route,
 } from 'react-router-dom';
 import styles from '../../App.css';
 import Origin from './Origin';
@@ -24,20 +24,16 @@ export default function CharacterDetails({ characters }) {
     setCharacter(currCharacter);
   }, [id]);
 
-  console.log('character', character.origin?.url);
-
   useEffect(() => {
     const getLocation = async () => {
       if (!character.origin?.url) return;
       const res = await fetch(character.origin.url);
       const results = await res.json();
-      console.log('results :>> ', results);
       setLocation(results);
       setLoading(false);
     };
     getLocation();
   }, [character.origin?.url]);
-  console.log('location :>> ', location);
   return (
     <>
       <Switch>
