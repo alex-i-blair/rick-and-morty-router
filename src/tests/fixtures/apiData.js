@@ -646,4 +646,3 @@ export const data = {
     },
   ],
 };
-const { results } = data; //?

@@ -1,12 +1,11 @@
-import App from '../App';
 import {
-  screen,
   render,
+  screen,
   waitForElementToBeRemoved,
-  getByAltText,
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
+import App from '../App';
 
 describe('App', () => {
   it('should be able to navigate to characters', async () => {
@@ -28,9 +27,19 @@ describe('App', () => {
       name: /image of rick sanchez/i,
     });
     userEvent.click(screen.getByRole('img', { name: /image of morty smith/i }));
-    const mortyDetail = screen.getByRole('heading', {
+    screen.getByRole('heading', {
       name: /morty smith/i,
     });
     screen.getByText(/Origin:/i);
+  });
+  it('should be able to load the details page with initialEntries', async () => {
+    render(
+      <MemoryRouter initialEntries={['/characters']}>
+        <App />
+      </MemoryRouter>
+    );
+    const spinner = screen.getByAltText('spinner');
+    await waitForElementToBeRemoved(spinner);
+    screen.getByRole('heading', { name: /characters/i });
   });
 });
